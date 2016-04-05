@@ -234,16 +234,21 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
+    <Compile Include="Controllers\EditUserProfileBindingModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Tickets\GetUserTicketsBindingModel.cs" />
+    <Compile Include="Models\User\ChangePasswordBindingModel.cs" />
     <Compile Include="Models\User\LoginUserBindingModel.cs" />
     <Compile Include="Models\User\RegisterUserBindingModel.cs" />
     <Compile Include="Models\User\UserCreateTicketBindingModel.cs" />
+    <Compile Include="Models\User\UserReplyBindingModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

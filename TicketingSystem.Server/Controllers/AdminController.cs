@@ -7,6 +7,8 @@
 
     public class AdminController: BaseApiController
     {
+        private ApplicationUserManager userManager;
+
         public AdminController()
             : this(new TicketingSystemData())
         {

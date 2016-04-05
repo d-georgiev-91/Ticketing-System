@@ -372,7 +372,8 @@
                 return this.BadRequest("Invalud user toke! Please login again!");
             }
 
-            var tickets = this.Data.Tickets.All();
+            var tickets = this.Data.Tickets.All()
+                .Include(t => t.Assignee);
 
             if (model.State.HasValue)
             {
@@ -419,7 +420,105 @@
             {
                 ticketsCount,
                 pagesCount,
-                tickets = ticketsToReturn                       
+                tickets = ticketsToReturn
+            });
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ticketId"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("Tickets/{id:int}")]
+        public IHttpActionResult GetTicketById(int ticketId)
+        {
+            var ticket = this.Data.Tickets.All()
+                .Include(t => t.Assignee)
+                .FirstOrDefault(t => t.Id == ticketId);
+
+            if (ticket == null)
+            {
+                return this.NotFound();
+            }
+
+            var currentUserId = this.User.Identity.GetUserId();
+
+            if (ticket.CreatorId != currentUserId)
+            {
+                return this.Unauthorized();
+            }
+
+            return this.Ok(new
+            {
+                id = ticket.Id,
+                title = ticket.Title,
+                state = ticket.State,
+                publishedAt = ticket.PublishedAt,
+                assignee = ticket.Assignee == null ? null : new
+                {
+                    firstName = ticket.Assignee.FirstName,
+                    lastName = ticket.Assignee.LastName
+                },
+                replies = ticket.Replies
+                                .OrderByDescending(r => r.PublishedAt)
+                                .Select(r => new
+                                {
+                                    id = r.Id,
+                                    author = new
+                                    {
+                                        id = r.AuthorId,
+                                        firstName = r.Author.FirstName,
+                                        lastName = r.Author.LastName
+                                    },
+                                    publishedAt = r.PublishedAt
+                                })
+            });
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ticketId"></param>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("Tickets/{id:int}/Reply")]
+        public IHttpActionResult ReplyToTicket(int ticketId, UserReplyBindingModel model)
+        {
+            var ticket = this.Data.Tickets.All()
+                .Include(t => t.Assignee)
+                .FirstOrDefault(t => t.Id == ticketId);
+
+            if (ticket == null)
+            {
+                return this.NotFound();
+            }
+
+            var currentUserId = this.User.Identity.GetUserId();
+
+            if (ticket.CreatorId != currentUserId)
+            {
+                return this.Unauthorized();
+            }
+
+            ticket.Replies.Add(new Reply
+            {
+                AuthorId = currentUserId,
+                Content = model.Content,
+                PublishedAt = DateTime.Now
+            });
+
+            if (ticket.Assignee != null)
+            {
+                ticket.State = TicketState.InProgress;
+            }
+
+            this.Data.SaveChanges();
+
+            return this.Ok(new
+            {
+                message = "Reply added successfuly."
             });
         }
 

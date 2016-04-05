@@ -481,9 +481,45 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
+        <member name="T:TicketingSystem.Server.Controllers.EditUserProfileBindingModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TicketingSystem.Server.Controllers.EditUserProfileBindingModel.Email">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TicketingSystem.Server.Controllers.EditUserProfileBindingModel.FirstName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TicketingSystem.Server.Controllers.EditUserProfileBindingModel.LastName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TicketingSystem.Server.Controllers.EditUserProfileBindingModel.PhoneNumber">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:TicketingSystem.Server.Controllers.UserController">
             <summary>
             Controller that handles user interactions
+            </summary>
+        </member>
+        <member name="M:TicketingSystem.Server.Controllers.UserController.#ctor(TicketingSystem.Data.ITicketingSystemData)">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:TicketingSystem.Server.Controllers.UserController.#ctor">
+            <summary>
+            
             </summary>
         </member>
         <member name="M:TicketingSystem.Server.Controllers.UserController.RegisterUser(TicketingSystem.Server.Models.User.RegisterUserBindingModel)">
@@ -505,6 +541,106 @@
             </example>
             else BadRequest reponse is returned
             </returns>
+        </member>
+        <member name="M:TicketingSystem.Server.Controllers.UserController.LoginUser(TicketingSystem.Server.Models.User.LoginUserBindingModel)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TicketingSystem.Server.Controllers.UserController.Logout">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TicketingSystem.Server.Controllers.UserController.ChangeUserPassword(TicketingSystem.Server.Models.User.ChangePasswordBindingModel)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TicketingSystem.Server.Controllers.UserController.GetUserProfile">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TicketingSystem.Server.Controllers.UserController.EditUserProfile(TicketingSystem.Server.Controllers.EditUserProfileBindingModel)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TicketingSystem.Server.Controllers.UserController.CreateNewTicket(TicketingSystem.Server.Models.User.UserCreateTicketBindingModel)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TicketingSystem.Server.Controllers.UserController.GetTickets(TicketingSystem.Server.Models.Tickets.GetUserTicketsBindingModel)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TicketingSystem.Server.Controllers.UserController.GetTicketById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="ticketId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TicketingSystem.Server.Controllers.UserController.ReplyToTicket(System.Int32,TicketingSystem.Server.Models.User.UserReplyBindingModel)">
+            <summary>
+            
+            </summary>
+            <param name="ticketId"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TicketingSystem.Server.Controllers.UserController.Close(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="ticketId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TicketingSystem.Server.Controllers.UserController.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources that are used by the object and, optionally, releases the managed resources.
+            </summary>
+            <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+        </member>
+        <member name="T:TicketingSystem.Server.Models.Tickets.GetUserTicketsBindingModel">
+            <summary>
+            Model holding 
+            </summary>
+        </member>
+        <member name="M:TicketingSystem.Server.Models.Tickets.GetUserTicketsBindingModel.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TicketingSystem.Server.Models.Tickets.GetUserTicketsBindingModel.State">
+            <summary>
+            Ticket State
+            </summary>
+        </member>
+        <member name="P:TicketingSystem.Server.Models.Tickets.GetUserTicketsBindingModel.PageSize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TicketingSystem.Server.Models.Tickets.GetUserTicketsBindingModel.StartPage">
+            <summary>
+            
+            </summary>
         </member>
         <member name="T:TicketingSystem.Server.Models.User.RegisterUserBindingModel">
             <summary>
@@ -551,6 +687,16 @@
             <summary>
             The confirmation password.
             It should match the password.
+            </summary>
+        </member>
+        <member name="T:TicketingSystem.Server.Models.User.UserReplyBindingModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TicketingSystem.Server.Models.User.UserReplyBindingModel.Content">
+            <summary>
+            
             </summary>
         </member>
         <member name="M:TicketingSystem.Server.Utils.UserSessionManager.GetCurrentBearerAuthrorizationToken">
