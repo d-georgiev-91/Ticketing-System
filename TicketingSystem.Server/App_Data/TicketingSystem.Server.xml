@@ -481,6 +481,63 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
+        <member name="T:TicketingSystem.Server.Controllers.AdminController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TicketingSystem.Server.Controllers.AdminController.UserManager">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:TicketingSystem.Server.Controllers.AdminController.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:TicketingSystem.Server.Controllers.AdminController.#ctor(TicketingSystem.Data.ITicketingSystemData)">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:TicketingSystem.Server.Controllers.AdminController.GetTickets(TicketingSystem.Server.Models.Admin.AdminGetTicketsBindingModel)">
+            <summary>
+            
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TicketingSystem.Server.Controllers.AdminController.GetTicketById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="ticketId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TicketingSystem.Server.Controllers.AdminController.ReplyToTicket(System.Int32,TicketingSystem.Server.Models.Admin.AdminReplyBindingModel)">
+            <summary>
+            
+            </summary>
+            <param name="ticketId"></param>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TicketingSystem.Server.Controllers.AdminController.AssignTo(System.Int32,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="ticketId"></param>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TicketingSystem.Server.Controllers.AdminController.GetAdmins">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:TicketingSystem.Server.Controllers.EditUserProfileBindingModel">
             <summary>
             
@@ -616,6 +673,51 @@
             Releases the unmanaged resources that are used by the object and, optionally, releases the managed resources.
             </summary>
             <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+        </member>
+        <member name="T:TicketingSystem.Server.Models.Admin.AdminGetTicketsBindingModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TicketingSystem.Server.Models.Admin.AdminGetTicketsBindingModel.State">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TicketingSystem.Server.Models.Admin.AdminGetTicketsBindingModel.AssigneeId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TicketingSystem.Server.Models.Admin.AdminGetTicketsBindingModel.SortBy">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TicketingSystem.Server.Models.Admin.AdminGetTicketsBindingModel.PageSize">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TicketingSystem.Server.Models.Admin.AdminGetTicketsBindingModel.StartPage">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:TicketingSystem.Server.Models.Admin.AdminReplyBindingModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:TicketingSystem.Server.Models.Admin.AdminReplyBindingModel.Content">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:TicketingSystem.Server.Models.Admin.AdminUpdateTicketStateBindingModel">
+            <summary>
+            
+            </summary>
         </member>
         <member name="T:TicketingSystem.Server.Models.Tickets.GetUserTicketsBindingModel">
             <summary>
