@@ -240,7 +240,7 @@
         /// <param name="userId"></param>
         /// <returns></returns>
         [HttpPut]
-        [Route("Tickets/{ticketId:int}/Assign/{userId:string}")]
+        [Route("Tickets/{ticketId:int}/Assign/{userId}")]
         public IHttpActionResult AssignTo(int ticketId, string userId)
         {
             var ticket = this.Data.Tickets.All()
